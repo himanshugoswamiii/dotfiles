@@ -1,0 +1,39 @@
+{
+    "extensions.autoCheckUpdates": false,
+    "extensions.autoUpdate": false,
+    "update.mode": "none",
+    "telemetry.telemetryLevel": "off",
+
+    "workbench.colorTheme": "Monokai",
+    "editor.fontFamily": "'Recursive Mono Casual Static', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 15,
+
+    "terminal.integrated.fontFamily": "'CaskaydiaCove Nerd Font'",
+    "terminal.integrated.copyOnSelection": true,
+
+    "git.openRepositoryInParentFolders": "never",
+
+    "editor.lineNumbers": "relative",
+    "vim.useSystemClipboard": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["g", "h"],
+            "after": ["^"]
+        },
+        {
+            "before": ["g", "l"],
+            "after": ["$"]
+        },
+        {
+            "before": ["u"],
+            "command": ["undo"]
+        },
+        {
+            "before": ["C-r"],
+            "command": ["redo"]
+        }
+    ],
+}

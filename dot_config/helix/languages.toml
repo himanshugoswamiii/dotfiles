@@ -1,0 +1,10 @@
+[[language]]
+name = "c"
+file-types = ["c"]
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "cpp"
+file-types = ["cpp"]
+indent = { tab-width = 4, unit = "    " } 
+# if unit is "\t" then it'll show indent as a single tab character, which causes problems when navigating
