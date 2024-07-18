@@ -1,0 +1,6 @@
+**/.git/ # ignore .git in any target directory
+**/.gitignore
+!.config/nvim/.gitignore
+
+.config/nvim/lazyvim.json
+.config/nvim/lazy-lock.json
