@@ -2,12 +2,15 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
+
+vim.opt.tabstop = 4 -- Number of spaces tabs count for
+vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.conceallevel = 0 -- display the markup (*) for bold, italic and code
 vim.opt.mouse = "i" -- Enable mouse mode
-vim.opt.shiftwidth = 4 -- Size of an indent
-vim.opt.tabstop = 4 -- Number of spaces tabs count for
 -- vim.opt.wrap = false
 
+-- machine-specific configuration
+{{- if eq .chezmoi.hostname "hac-himkumar-1.ciena.com" }}
 vim.cmd([[
 let g:clipboard = {
   \   'name': 'osc-copy',
@@ -22,3 +25,5 @@ let g:clipboard = {
   \   'cache_enabled': 0,
   \ }
 ]])
+{{- end }}
+
