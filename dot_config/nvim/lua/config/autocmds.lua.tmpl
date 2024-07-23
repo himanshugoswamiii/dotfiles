@@ -3,6 +3,7 @@
 -- Add any additional autocmds here
 
 {{- if eq .chezmoi.hostname "hac-himkumar-1" }}
+
 -- **************  YEXT YANK using OSC  **************************
 -- Define the function to pipe yanked content to the osc script
 local function pipe_yanked_text()
@@ -17,3 +18,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = pipe_yanked_text,
 })
 {{- end }}
+
+-- ************* SETUP LUA INDENTATION **********************
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function() -- Inline function in Lua, we could have done this using a seperate function as well
+    vim.opt.shiftwidth = 2 -- No of spaces for each indentation
+    vim.opt.tabstop = 2
+  end,
+})
