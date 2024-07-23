@@ -8,22 +8,3 @@ vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.conceallevel = 0 -- display the markup (*) for bold, italic and code
 vim.opt.mouse = "i" -- Enable mouse mode
 -- vim.opt.wrap = false
-
--- machine-specific configuration
-{{- if eq .chezmoi.hostname "hac-himkumar-1" }}
-vim.cmd([[
-let g:clipboard = {
-  \   'name': 'osc-copy',
-  \   'copy': {
-  \      '+': 'osc copy',
-  \      '*': 'osc copy',
-  \    },
-  \   'paste': {
-  \      '+': 'osc paste',
-  \      '*': 'osc paste',
-  \   },
-  \   'cache_enabled': 0,
-  \ }
-]])
-{{- end }}
-

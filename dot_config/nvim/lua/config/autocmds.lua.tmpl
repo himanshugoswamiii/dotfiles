@@ -1,0 +1,19 @@
+-- Autocmds are automatically loaded on the VeryLazy event
+-- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+-- Add any additional autocmds here
+
+{{- if eq .chezmoi.hostname "hac-himkumar-1" }}
+-- **************  YEXT YANK using OSC  **************************
+-- Define the function to pipe yanked content to the osc script
+local function pipe_yanked_text()
+  local yanked_text = vim.fn.getreg('"') -- get the yanked text from the unnamed register
+
+  local command = string.format("echo %s | osc copy", vim.fn.shellescape(yanked_text))
+  os.execute(command)
+end
+
+-- Setup an autocmd to call the function whenever text is yanked
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = pipe_yanked_text,
+})
+{{- end }}
