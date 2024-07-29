@@ -23,8 +23,8 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-if [ -f ~/.config/zsh/nnn.zsh ]; then
-    source ~/.config/zsh/nnn.zsh
+if [ -f ~/.config/nnn/nnn.zsh ]; then
+    source ~/.config/nnn/nnn.zsh
 fi
 
 # fzf completions
