@@ -4,3 +4,5 @@
 
 .config/nvim/lazyvim.json
 .config/nvim/lazy-lock.json
+
+.config/nnn/plugins/
