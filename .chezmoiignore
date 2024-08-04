@@ -6,3 +6,6 @@
 .config/nvim/lazy-lock.json
 
 .config/nnn/plugins/
+
+# ---- Kakoune ----
+.config/kak/bundle/  # this will be automatically installed by kakoune
