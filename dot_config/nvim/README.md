@@ -18,3 +18,23 @@ Setup Using `Mason`
 
 > Q: Do we need to configure any files ?
 > - No
+
+#### clangd
+-. Install using `Mason`
+
+**If you face the indentation problem:** Indentation becoming 2 automatically on save
+
+*Reason:* `clangd` uses `ClangFormat engine` for formatting and defaults to LLVM Style Guide (2 spaces indent width)
+- Read here : https://github.com/clangd/coc-clangd/issues/345
+
+*Solution:* Create a file `.clang-format` in your current project directory and add the following :
+
+```yaml
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+```
+
+**This will make the configuration work in that Project only. How to make it global ?**
+- Create this file `.clang-format` in your `$HOME` directory for global config
