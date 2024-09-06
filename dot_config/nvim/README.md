@@ -38,3 +38,6 @@ UseTab: Never
 
 **This will make the configuration work in that Project only. How to make it global ?**
 - Create this file `.clang-format` in your `$HOME` directory for global config
+
+## Keymaps
+If you want to override an existing mapping, make sure to disable it first in the correct place.
