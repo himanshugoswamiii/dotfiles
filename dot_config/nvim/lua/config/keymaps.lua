@@ -15,6 +15,7 @@ vim.keymap.set("n", "gl", "$", { noremap = true, silent = false, desc = "Goto li
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
 vim.keymap.del("n", "<leader>gl")
+vim.keymap.del("n", "<leader>gL")
 vim.keymap.del("n", "<leader>gf")
 
 -- windows
