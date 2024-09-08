@@ -41,3 +41,5 @@ alias ls='ls --color=auto' # select quiet as powerlevel instant prompt when conf
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=1000
+
+export PATH="$PATH:/home/hg/.cargo/bin"
