@@ -1,7 +1,12 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
+# Chezmoi
+## Machine to Machine Differences
 
+### Neovim
+`.tmpl` file for Neovim 
+
+It requies `osc` program to be installed
+
+```tmpl
 {{- if eq .chezmoi.hostname "hac-himkumar-1" }}
 
 -- **************  YEXT YANK using OSC  **************************
@@ -19,12 +24,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = pipe_yanked_text,
 })
 {{- end }}
-
--- ************* SETUP LUA INDENTATION **********************
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  callback = function() -- Inline function in Lua, we could have done this using a seperate function as well
-    vim.opt.shiftwidth = 2 -- No of spaces for each indentation
-    vim.opt.tabstop = 2
-  end,
-})
+```

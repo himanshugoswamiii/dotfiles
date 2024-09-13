@@ -24,3 +24,6 @@ vim.keymap.del("n", "<leader>|")
 
 -- buffers
 vim.keymap.del("n", "<leader>`")
+
+-- keywordprg : we already have K for it by default in Vim
+vim.keymap.del("n", "<leader>K")
