@@ -1,0 +1,14 @@
+{{- if eq .chezmoi.hostname "hac-himkumar-1" }}
+[plugin]
+prepend_previewers = [
+	{ mime = "image/*", run = "noop" },
+]
+{{- end }}
+
+{{- if eq .chezmoi.hostname "hac-himkumar-1" }}
+[open]
+prepend_rules = [
+	# Archive
+    { mime = "application/x-gzip", use = [ "extract", "reveal" ] },
+]
+{{- end }}
