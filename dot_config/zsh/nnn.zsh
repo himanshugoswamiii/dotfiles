@@ -7,7 +7,7 @@ export NNN_OPTS="Aeox"  # Look at Program Options in the nnn Wiki
 # x : Copy selection path to clipboard
 
 export VISUAL=nvim
-export EDITOR=vim  # EDITOR will change the batch rename editor from nano to vim
+export EDITOR=nvim  # EDITOR will change the batch rename editor from nano to vim
 export PDF=zathura # Find command for pdf opener
 
 # Here t is the key to open preview-tabbed
