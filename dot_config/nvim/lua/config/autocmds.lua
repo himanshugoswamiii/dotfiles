@@ -21,8 +21,8 @@
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   callback = function() -- Inline function in Lua, we could have done this using a seperate function as well
-    vim.opt.shiftwidth = 2 -- No of spaces for each indentation
-    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 4 -- No of spaces for each indentation
+    vim.opt.tabstop = 4
   end,
 })
 
