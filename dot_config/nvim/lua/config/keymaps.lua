@@ -10,7 +10,9 @@ vim.keymap.set("n", "gh", "^", { noremap = true, silent = false, desc = "Goto li
 vim.keymap.set("n", "gl", "$", { noremap = true, silent = false, desc = "Goto line end" })
 
 --  *** DISABLED KEYMAPS ***
---
+vim.keymap.del({ "n", "i", "v" }, "<A-j>") -- Move line Down
+vim.keymap.del({ "n", "i", "v" }, "<A-k>") -- Move line Up
+
 -- lazygit
 -- vim.keymap.del("n", "<leader>gg")
 -- vim.keymap.del("n", "<leader>gG")
