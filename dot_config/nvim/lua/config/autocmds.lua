@@ -19,19 +19,19 @@
 
 -- ************* SETUP LUA INDENTATION **********************
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  callback = function() -- Inline function in Lua, we could have done this using a seperate function as well
-    vim.opt.shiftwidth = 4 -- No of spaces for each indentation
-    vim.opt.tabstop = 4
-  end,
+    pattern = "lua",
+    callback = function() -- Inline function in Lua, we could have done this using a seperate function as well
+        vim.opt.shiftwidth = 4 -- No of spaces for each indentation
+        vim.opt.tabstop = 4
+    end,
 })
 
 -- This disables automatic comments in all filetypes
 -- r: Comment on Enter, o : using o or Shift O to insert line , c: Autowrap comments using textwidth
 vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
-  group = vim.api.nvim_create_augroup("General", { clear = true }),
-  desc = "Disable New Line Comment",
+    callback = function()
+        vim.opt.formatoptions:remove({ "c", "r", "o" })
+    end,
+    group = vim.api.nvim_create_augroup("General", { clear = true }),
+    desc = "Disable New Line Comment",
 })
