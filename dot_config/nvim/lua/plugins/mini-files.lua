@@ -28,6 +28,13 @@ return {
       end,
       desc = "Open mini.files (cwd)",
     },
+    {
+      "<CR>",
+      function()
+        require("mini.files").go_in()
+      end,
+      desc = "Go in entry under cursor",
+    },
   },
 
   config = function(_, opts)
