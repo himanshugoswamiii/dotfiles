@@ -4,6 +4,7 @@ return {
     local cmp = require("cmp")
     opts.mapping = vim.tbl_deep_extend("force", opts.mapping, {
       ["<CR>"] = cmp.config.disable, -- Disable <Enter>
+      ["<Tab>"] = LazyVim.cmp.confirm({ select = true }),
     })
   end,
 }
