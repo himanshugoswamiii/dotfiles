@@ -35,3 +35,32 @@ vim.api.nvim_create_autocmd("BufEnter", {
     group = vim.api.nvim_create_augroup("General", { clear = true }),
     desc = "Disable New Line Comment",
 })
+
+-- **** Copy file Path from Mini.files *****
+
+local yank_absolute_path = function()
+    local path = require("mini.files").get_fs_entry().path
+    vim.fn.setreg("+", path)
+    print(path)
+end
+
+-- We don't need it since i can copy the file name using : <Shift-y>
+local yank_relative_path = function()
+    local path = require("mini.files").get_fs_entry().path
+    local relative_path = vim.fn.fnamemodify(path, ":.")
+    vim.fn.setreg("+", relative_path)
+    -- Print path yanked
+    print(relative_path)
+end
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesBufferCreate",
+    callback = function(args)
+        vim.keymap.set(
+            "n",
+            "gy",
+            yank_absolute_path,
+            { buffer = args.data.buf_id, desc = "Copy absolute path of file" }
+        )
+    end,
+})
