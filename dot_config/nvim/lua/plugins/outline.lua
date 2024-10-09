@@ -6,6 +6,9 @@ return {
         -- c o : code outline
 
         require("outline").setup({
+            outline_window = {
+                width = 15,
+            },
             -- Your setup opts here (leave empty to use defaults)
         })
     end,
