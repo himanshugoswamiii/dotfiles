@@ -40,7 +40,14 @@ return {
     config = function(_, opts)
         require("mini.files").setup(opts)
 
-        -- Open file under cursor in split
+        -- **** Copy file Path *****
+        local yank_absolute_path = function()
+            local path = require("mini.files").get_fs_entry().path
+            vim.fn.setreg("+", path)
+            print(path)
+        end
+
+        -- **** Open file under cursor in split ****
         local map_split = function(buf_id, lhs, direction)
             local rhs = function()
                 -- Make new window in split and set it as target
@@ -65,9 +72,18 @@ return {
             pattern = "MiniFilesBufferCreate",
             callback = function(args)
                 local buf_id = args.data.buf_id
-                -- Tweak keys to your liking
-                map_split(buf_id, "<C-s>", "belowright horizontal")
-                map_split(buf_id, "<C-v>", "belowright vertical")
+
+                -- Keymap for : copy absolute path
+                -- You can use <Shift + y> to copy the file name
+                vim.keymap.set(
+                    "n",
+                    "gy",
+                    yank_absolute_path,
+                    { buffer = args.data.buf_id, desc = "Copy absolute path of file" }
+                )
+                -- Open file in split
+                map_split(buf_id, "gs", "belowright horizontal")
+                map_split(buf_id, "gv", "belowright vertical")
             end,
         })
         --
