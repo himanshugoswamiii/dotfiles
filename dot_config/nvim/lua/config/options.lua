@@ -8,3 +8,4 @@ vim.opt.conceallevel = 0 -- display the markup (*) for bold, italic and code
 vim.opt.mouse = "i" -- Enable mouse mode
 vim.opt.clipboard = "unnamedplus"
 vim.opt.wrap = false
+vim.opt.pumblend = 0 -- disable popup blend
