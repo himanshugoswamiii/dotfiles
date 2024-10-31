@@ -1,0 +1,93 @@
+#  ====== bash_valimar ===========
+alias ls="ls --color"
+HISTSIZE=5000
+HISTFILESIZE=5000
+# alias ll='ls -alF'
+
+# ====   nnn-configuration =========
+export NNN_OPTS="Aeox"
+# A : no dir auto-entering during filter
+# e : text in $VISUAL/$EDITOR/vi
+# o : Open files only on enter. Now `l` won't open files
+# x : copy path on selection
+export EDITOR=nvim
+export NNN_COLORS="2136" # Different colors for each 1, 2, 3, 4
+export NNN_PLUG="t:preview-tui"
+export NNN_FIFO="/tmp/nnn.fifo"
+# export VISUAL=nvim
+#
+
+# ========= yazi ============
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+# ---------------------------
+
+export PATH=$PATH:~/go/bin/
+export PATH=$PATH:~/.local/hg-scripts/
+export PATH=$PATH:~/.local/nvim/bin/
+export MANPATH=$MANPATH:~/.local/share/man/
+
+# ========== WaveRouter ===============
+export PATH=$PATH:~/.local/bin/
+export PATH="$PATH:/home/$USER/ybin"
+
+export YOCTO_DIR="/localdisk/$USER/yocto"
+alias ysrc='pushd ${YOCTO_DIR}/source/valimar'
+alias ybld='pushd ${YOCTO_DIR}/builds'
+
+alias wsrc='pushd /localdisk/$USER/yocto/source/waverouter'
+alias wbld='pushd /localdisk/$USER/yocto/builds/waverouter'
+alias hg_sherlog='pushd /localdisk/$USER/Waverouter_SW/waverouter_dataset/'
+alias hg_learn='pushd /localdisk/hg/Learn/'
+
+# ----  Flight Recorder -----
+# Babeltrace
+export PYTHON_CONFIG=/bin/python3-config
+# used for babeltrace2 installation
+alias bt2='babeltrace2 --clock-gmt --clock-date'
+
+# ---- Poetry ----
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+
+# =============================================
+
+# --- Functions ---------------
+function find_largest_files() {
+    du -h -x -s -- * | sort -r -h | head -20
+}
+
+# -----  PROMPT : starship ----------
+if [[ -f "/usr/local/bin/starship" ]]; then
+    eval "$(starship init bash)"
+fi
+# --------- Bash completion ---------------
+# Use bash-completion, if available
+if [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]]; then
+    source /usr/share/bash-completion/bash_completion
+fi
+
+bind "set completion-ignore-case on"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Ignore .gitignore files from fzf
+export FZF_DEFAULT_COMMAND="rg --files"
+
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# gh : github cli
+[ -f "/home/$USER/.ghcup/env" ] && . "/home/$USER/.ghcup/env" # ghcup-env
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash --disable-up-arrow)"
