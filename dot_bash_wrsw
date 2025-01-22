@@ -1,0 +1,23 @@
+# ========== WaveRouter ===============
+export PATH="$PATH:~/.local/bin/"
+export PATH="$PATH:/home/$USER/ybin"
+export PATH="$PATH:/opt/tools/swtools/coverity/coverity_current/bin"
+
+export YOCTO_DIR="/localdisk/$USER/yocto"
+alias ysrc='pushd ${YOCTO_DIR}/source/valimar'
+alias ybld='pushd ${YOCTO_DIR}/builds'
+
+alias wsrc='pushd /localdisk/$USER/yocto/source/waverouter'
+alias wbld='pushd /localdisk/$USER/yocto/builds/waverouter'
+alias hg_sherlog='pushd /localdisk/$USER/Waverouter_SW/waverouter_dataset/'
+alias hg_learn='pushd /localdisk/hg/Learn/'
+
+# ----  Flight Recorder -----
+# Babeltrace
+export PYTHON_CONFIG=/bin/python3-config
+# used for babeltrace2 installation
+alias bt2='babeltrace2 --clock-gmt --clock-date'
+
+# ---- Poetry ----
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+
