@@ -1,3 +1,8 @@
+if true then
+    return {}
+end
+-- If you want to apply this config remove the above line
+
 return {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
