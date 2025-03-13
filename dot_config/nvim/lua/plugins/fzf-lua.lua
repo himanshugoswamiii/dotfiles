@@ -1,3 +1,7 @@
+-- Using snacks.picker now
+if true then
+    return {}
+end
 --[[ Keymaps:
       ["shift-down"]  = "preview-page-down",
       ["shift-up"]    = "preview-page-up",
@@ -11,8 +15,11 @@ return {
             file_icons = false,
         },
         winopts = {
+            width = 0.9,
             preview = {
-                layout = "vertical",
+                layout = "flex",
+                vertical = "down:45%",
+                horizontal = "right:50%",
             },
         },
         previewers = {

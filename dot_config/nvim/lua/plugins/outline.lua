@@ -1,3 +1,8 @@
+-- using trouble.nvim instead
+if true then
+    return {}
+end
+
 return {
     "hedyhli/outline.nvim",
     config = function()
@@ -7,7 +12,7 @@ return {
 
         require("outline").setup({
             outline_window = {
-                width = 15,
+                width = 25,
             },
             -- Your setup opts here (leave empty to use defaults)
         })

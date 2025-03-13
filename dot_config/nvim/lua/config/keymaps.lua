@@ -23,6 +23,10 @@ vim.keymap.del({ "n", "i", "v" }, "<A-k>") -- Move line Up
 -- windows
 vim.keymap.del("n", "<leader>-")
 vim.keymap.del("n", "<leader>|")
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>") -- Use <leader>wl
 
 -- buffers
 vim.keymap.del("n", "<leader>`")
