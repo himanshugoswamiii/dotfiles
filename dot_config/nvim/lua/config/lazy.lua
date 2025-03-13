@@ -14,12 +14,19 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- NOTE: Order of IMPORTS
+--      LazyVim should always be imported first
+--      Then all the extras. But here order matters as well, so if you don't use LazyExtras, you're on your own.
+--      Finally you import your personal plugins
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        -- import/override with your plugins
+
+        -- Added by Himanshu : Order of imports is important
         { import = "lazyvim.plugins.extras.coding.neogen" },
+
+        -- import/override with your plugins
         { import = "plugins" },
     },
     defaults = {
