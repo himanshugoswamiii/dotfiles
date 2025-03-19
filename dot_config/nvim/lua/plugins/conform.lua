@@ -1,3 +1,6 @@
+if true then
+    return {}
+end
 --[[ 
 Code Formatter: 
         Used formatters like clang-format
