@@ -2,8 +2,6 @@
 **/.gitignore
 !.config/nvim/.gitignore
 
-.config/nvim/lazy-lock.json
-
 .config/nnn/plugins/
 
 # ---- Kakoune ----
